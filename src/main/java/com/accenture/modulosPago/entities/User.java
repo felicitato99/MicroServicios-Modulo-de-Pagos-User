@@ -24,10 +24,10 @@ public class User {
     @Column (unique = true)
     private String email;
     private String password;
-    @Transient
-    private Set<Account> accountList = new HashSet<>();
-    @ElementCollection(targetClass = Long.class)
-    private Set<Long> accountIdList = new HashSet<>();
+    private Boolean isActive;
+
+
+
 
     public User() {
     }
@@ -39,6 +39,7 @@ public class User {
         this.dni = userDto.getDni();
         this.email = userDto.getEmail();
         this.password = userDto.getPassword();
+        this.isActive = true;
     }
 
     public Long getId() {
@@ -89,19 +90,24 @@ public class User {
         this.password = password;
     }
 
-    public Set<Account> getAccountList() {
-        return accountList;
+    public Boolean getActive() {
+        return isActive;
     }
 
-    public void setAccountList(Set<Account> accountList) {
-        this.accountList = accountList;
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
-    public Set<Long> getAccountIdList() {
-        return accountIdList;
-    }
-
-    public void setAccountIdList(Set<Long> accountIdList) {
-        this.accountIdList = accountIdList;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", dni='" + dni + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", isActive=" + isActive +
+                '}';
     }
 }

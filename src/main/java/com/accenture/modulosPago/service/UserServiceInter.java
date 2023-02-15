@@ -12,9 +12,6 @@ import java.util.Map;
 public interface UserServiceInter {
 
     public List<User> findAll();
-
     public User findById(Long id);
-
-
-    public User createdUser(UserDto userDto);
+    public User generateUser(UserDto userDto);
 }

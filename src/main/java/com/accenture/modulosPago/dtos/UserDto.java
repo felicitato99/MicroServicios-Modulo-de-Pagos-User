@@ -8,6 +8,10 @@ public class UserDto {
     private String dni;
     private String email;
     private String password;
+    private Boolean isActive;
+
+    public UserDto() {
+    }
 
     public UserDto(User user) {
         this.name = user.getName();
@@ -15,6 +19,7 @@ public class UserDto {
         this.dni = user.getDni();
         this.email = user.getEmail();
         this.password = user.getPassword();
+        this.isActive = user.getActive();
     }
     public UserDto(String name, String lastname, String dni, String email, String password) {
         this.name = name;
@@ -22,6 +27,22 @@ public class UserDto {
         this.dni = dni;
         this.email = email;
         this.password = password;
+    }
+    public UserDto(String name, String lastname, String dni, String email) {
+        this.name = name;
+        this.lastname = lastname;
+        this.dni = dni;
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDto{" +
+                "name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", dni='" + dni + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
     public String getName() {
@@ -62,5 +83,13 @@ public class UserDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }

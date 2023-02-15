@@ -13,6 +13,7 @@ public class Account {
     private BigDecimal balance;
     private LocalDate creationDate;
     private Long userId;
+    private Boolean isActive;
 
     public Long getId() {
         return id;
@@ -60,5 +61,13 @@ public class Account {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }
